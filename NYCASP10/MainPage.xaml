@@ -1,0 +1,77 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NYCASP10"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Universal="using:Microsoft.AdMediator.Universal"
+    x:Class="NYCASP10.MainPage"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Pivot>
+            <PivotItem Header="ASP Status">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel>
+                        <TextBlock FontSize="22" x:Name="todaydate" />
+                        <TextBlock FontSize="22" x:Name="asptoday" />
+                        <TextBlock FontSize="22" x:Name="meterstoday" />
+                    </StackPanel>
+                    <StackPanel Margin="0,36,0,0">
+                        <TextBlock FontSize="22" x:Name="tomorrowdate" />
+                        <TextBlock FontSize="22" x:Name="asptomorrow" />
+                        <TextBlock FontSize="22" x:Name="meterstomorrow" />
+                    </StackPanel>
+                    <StackPanel Margin="0,36,0,0">
+                        <TextBlock FontSize="22" Text="Next Scheduled Suspension" />
+                        <TextBlock FontSize="22" x:Name="NextHolidayDate" />
+                        <TextBlock FontSize="22" x:Name="NextHolidayName" />
+                    </StackPanel>
+                </StackPanel>
+            </PivotItem>
+            <PivotItem Header="Live Updates">
+                <ListBox x:Name="liveupdatesrss" Background="White">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock TextWrapping="Wrap" FontSize="18" Text="{Binding title}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </PivotItem>
+            <PivotItem Header="Calendar">
+                <ListBox x:Name="calendar" ItemsSource="{Binding}" Background="White">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding date}" FontSize="22" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding holiday}" FontSize="18" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </PivotItem>
+        </Pivot>
+        <Universal:AdMediatorControl x:Name="AdMediator_0EAFA0" 
+                                     Height="50" 
+                                     Id="AdMediator-Id-4B0D6F10-5DC2-42FB-87DC-13D2F1A6F9E7" 
+                                     Grid.Row="1" 
+                                     Visibility="Visible"
+                                     VerticalAlignment="Bottom" 
+                                     Width="320"/>
+        <CommandBar Grid.Row="2" VerticalAlignment="Bottom">
+            <AppBarButton Name="BuyButton" Icon="Shop" Label="Buy" Click="BuyButton_Click" />
+            <AppBarButton Name="RefreshButton" Icon="Refresh" Label="Refresh" Click="RefreshBar_Click"/>
+            <AppBarButton Name="ReminderButton" Icon="Clock" Visibility="Collapsed" Label="Reminder" Click="ReminderBar_Click"/>
+            <AppBarButton Name="SettingsButton" Icon="Setting" Visibility="Collapsed" Label="Settings" Click="SettingsButton_Click"/>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Rate App" Icon="Favorite" Click="Rate_Click" />
+                <AppBarButton Label="Feedback" Icon="Mail" Click="Email_Click" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Grid>
+</Page>

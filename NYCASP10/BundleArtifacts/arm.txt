@@ -1,0 +1,2 @@
+MainPackage=C:\Users\Beach\Desktop\windev\NYCASP10\NYCASP10\bin\ARM\Release\NYCASP10_2.0.3.0_ARM.appx
+SymbolPackage=C:\Users\Beach\Desktop\windev\NYCASP10\NYCASP10\AppPackages\NYCASP10_2.0.3.0_Test\NYCASP10_2.0.3.0_ARM.appxsym

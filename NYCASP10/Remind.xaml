@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="NYCASP10.Remind"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NYCASP10"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBox Name="CarLocation" Header="Car Location" PlaceholderText="Location of Car" HorizontalAlignment="Left" Width="200"/>
+            <ComboBox Name="ParkedOnDay" Header="Day Parked On" Width="200" Margin="0,12,0,0">
+                <x:String>Monday</x:String>
+                <x:String>Tuesday</x:String>
+                <x:String>Wednesday</x:String>
+                <x:String>Thursday</x:String>
+                <x:String>Friday</x:String>
+                <x:String>Saturday</x:String>
+                <x:String>Sunday</x:String>
+            </ComboBox>
+            <TimePicker Name="PickedTime" Header="No Parking Start Time" Width="200" Time="{Binding newtimer}" Margin="0,12,0,0" />
+            <ComboBox Name="RemindTime" Header="Reminder Time" Width="200" Margin="0,12,0,0">
+                <x:String>5 minutes</x:String>
+                <x:String>10 minutes</x:String>
+                <x:String>15 minutes</x:String>
+                <x:String>30 minutes</x:String>
+                <x:String>1 hour</x:String>
+                <x:String>2 hours</x:String>
+                <x:String>4 hours</x:String>
+                <x:String>12 hours</x:String>
+                <x:String>1 day</x:String>
+            </ComboBox>
+            <TextBlock Margin="0,12,0,0" Name="ReminderSet" />
+        </StackPanel>
+        <CommandBar Grid.Row="2" VerticalAlignment="Bottom">
+            <AppBarButton Icon="Back" Label="Back" Click="GoBackButton_Click" />
+            <AppBarButton Icon="Save" Label="Set" Click="SaveButton_Click" />
+            <AppBarButton Icon="Delete" Label="Delete" Click="DeleteButton_Click" />
+        </CommandBar>
+    </Grid>
+</Page>
